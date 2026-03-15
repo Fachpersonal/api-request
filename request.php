@@ -15,7 +15,7 @@ class Request
      */
     public static function get(string $url, array $data = []) : array
     {
-        return self::call($url, Method::GET->name, $data);
+        return self::call($url, "GET", $data);
     }
     /**
      * Allows to make a POST Request, by parsing the url and data (if needed).
@@ -26,7 +26,7 @@ class Request
      */
     public static function post(string $url, array $data = []) : array
     {
-        return self::call($url, Method::POST->name, $data);
+        return self::call($url, "POST", $data);
     }
     /**
      * Allows to make a PUT Request, by parsing the url and data (if needed).
@@ -37,7 +37,7 @@ class Request
      */
     public static function put(string $url, array $data = []) : array
     {
-        return self::call($url, Method::PUT->name, $data);
+        return self::call($url, "PUT", $data);
     }
     /**
      * Allows to make a DELETE Request, by parsing the url and data (if needed).
@@ -48,7 +48,7 @@ class Request
      */
     public static function delete(string $url, array $data = []) : array
     {
-        return self::call($url, Method::DELETE->name, $data);
+        return self::call($url, "DELETE", $data);
     }
 
     /**
@@ -73,11 +73,4 @@ class Request
         return json_decode($response);
     }
 
-}
-
-enum Method {
-    case GET;
-    case POST;
-    case PUT;
-    case DELETE;
 }
